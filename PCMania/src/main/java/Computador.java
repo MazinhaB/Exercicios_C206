@@ -1,14 +1,17 @@
 public class Computador {
-    String marca;
-    float preco;
+    String marca; //marca do computador
+    float preco; //preco total do computador
 
-    MemoriaUSB MUSB;
-    SistemaOperacional SO;
-    HardwareBasico[] HB = new HardwareBasico[3];
+    //cada computador tem:
+    MemoriaUSB MUSB; //uma memória USB
+    SistemaOperacional SO; //um sistema operacional
+    HardwareBasico[] HB = new HardwareBasico[3]; //3 hardwares básicos
 
     public Computador(){
         SO = new SistemaOperacional();
-    }
+    } //construtor para adicionar o Sistema Operacional
+
+    //método que mostra as informações do computador e de tudo que ele possui
     public void mostraPCConfigs(){
         System.out.println("\nMarca do Computador: "+this.marca);
         System.out.println("Preco: R$"+this.preco);
@@ -27,5 +30,5 @@ public class Computador {
     }
     public void addMemoriaUSB(MemoriaUSB musb){
         this.MUSB = musb;
-    }
+    }//método para adicionar uma memória USB
 }
