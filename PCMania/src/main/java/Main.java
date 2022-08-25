@@ -1,18 +1,20 @@
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in); //Scanner para a entrada de dados
         int op; //opcao de promoção
         int cont = 0; //contador de computadores
-        float total = 0;
-        Cliente cliente = new Cliente();
+        float total = 0;//recebe o retorno do método da classe Cliente que calcula o total da compra
+        Cliente cliente = new Cliente();//cria um novo cliente
 
+        //cadastro do cliente
         System.out.println("\nSeja bem vindo a PCMania.\nVamos rapidamente cadastrar algumas informacoes");
         System.out.print("Digite seu nome: ");
         cliente.nome = in.nextLine();
         System.out.print("Digite seu CPF: ");
         cliente.cpf = in.nextLong();
 
+        //escolha da promoção
         System.out.println("\nEh seu dia de sorte! Estamos em queima de estoque. Temos as seguintes promocoes:");
         System.out.println("Promocao 1 - Positivo");
         System.out.println("Promocao 2 - Acer");
@@ -20,9 +22,11 @@ public class Main {
         System.out.println("(Digite 0 para sair)");
         System.out.print("Qual promocao deseja? ");
         op = in.nextInt();
+
+        //loop para n compras
         while(op != 0) {
-            switch (op) {
-                case 1 -> {
+            switch (op) { //escolha da promoção
+                case 1 -> { //Computador Positivo
                     cliente.computadores[cont] = new Computador();
                     cliente.computadores[cont].marca = "Positivo";
                     cliente.computadores[cont].preco = 1300f;
@@ -43,7 +47,7 @@ public class Main {
                     cliente.computadores[cont].addMemoriaUSB(memoriaUSB);
                     cont++;
                 }
-                case 2->{
+                case 2->{//Computador Acer
                     cliente.computadores[cont] = new Computador();
                     cliente.computadores[cont].marca = "Acer";
                     cliente.computadores[cont].preco = 1800f;
@@ -64,7 +68,7 @@ public class Main {
                     cliente.computadores[cont].addMemoriaUSB(memoriaUSB);
                     cont++;
                 }
-                case 3->{
+                case 3->{//Computador Vaio
                     cliente.computadores[cont] = new Computador();
                     cliente.computadores[cont].marca = "Vaio";
                     cliente.computadores[cont].preco = 2800f;
@@ -95,6 +99,7 @@ public class Main {
             System.out.println("Promocao 3 - Vaio");
             op = in.nextInt();
         }
+        //Saída das informações
         if(cont == 0)
             System.out.println("Nenhuma compra foi efetuada");
         else {
