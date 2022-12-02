@@ -1,5 +1,11 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Main {
     public static void main(String[] args) {
@@ -73,8 +79,44 @@ public class Main {
 
             op = in.nextInt();
         }
-
         arq.escrever(votos, candidatos);
+        AtomicInteger cont1 = new AtomicInteger();
+        Path a1 = Paths.get("Darth Verde.txt");
+        try{
+            List<String> conteudo = Files.readAllLines(a1);
 
+            conteudo.forEach((linha)-> {
+                cont1.getAndIncrement();
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Votos para o Darth Verde: " + cont1);
+
+        AtomicInteger cont2 = new AtomicInteger();
+        Path a2 = Paths.get("Paulinho Anao.txt");
+        try{
+            List<String> conteudo = Files.readAllLines(a1);
+
+            conteudo.forEach((linha)-> {
+                cont2.getAndIncrement();
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Votos para o Paulinho Anao: " + cont2);
+
+        AtomicInteger cont3 = new AtomicInteger();
+        Path a3 = Paths.get("Rogerao.txt");
+        try{
+            List<String> conteudo = Files.readAllLines(a1);
+
+            conteudo.forEach((linha)-> {
+                cont3.getAndIncrement();
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Votos para o Rogerao: " + cont3);
     }
 }
